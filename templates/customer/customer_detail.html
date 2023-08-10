@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static%}
+    <link ref="stylesheet" href="{% static 'Css/product_details.css'%}"/>
+    <title>Customer Details</title>
+</head>
+<body>
+    
+    <h4>{{customer.name}}</h4>
+    <img src="{{customer.phone_number}}"/>
+    <p>{{customer.email_address}}</p>
+    <p>{{customer.address}}</p>
+    <a href="{% url 'addToCart_view' %}">
+        <button>Add customer</button>
+       </a>
+      
+</body>
+</html>

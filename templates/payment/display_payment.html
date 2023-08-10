@@ -1,0 +1,44 @@
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static %}
+    <link rel="stylesheet" href="{% static 'Css/product_list.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <h1>Product list</h1>
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>Payment</th>
+                <th>Date</th>
+                <th>Receipt</th> 
+                <th>Status</th>
+                <th>Order</th>
+                <th>Details</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for payment in payments %}
+            <tr>
+                <td>{{ payment.amount }}</td>
+                <td>{{ payment.payment_method }}</td>
+                <td>{{ payment.date }}</td>
+                <td>{{ payment.receipt }}</td>
+                <td>{{ payment.status }}</td>
+                <td>{{ payment.order }}</td>
+                <td> <a href="{% url 'payment_detail_view' id=payment.id %}">payment details</a> </td>      
+            </tr>
+            {% endfor %}   
+        </tbody>
+        
+    </table>
+    
+</body>
+</html>

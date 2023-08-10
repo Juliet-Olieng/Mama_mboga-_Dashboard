@@ -1,0 +1,42 @@
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%load static %}
+    <link rel="stylesheet" href="{% static 'Css/product_list.css' %}"/>
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <h1>List of Vendors</h1>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Contact</th>
+                <th>Store Name</th>
+                <th>User Name</th> 
+                <th>Details</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for vendor in vendors %}
+            <tr>
+                <td>{{ vendor.name }}</td>
+                <td>{{ vendor.location }}</td>
+                <td>{{ vendor.contact }}</td>
+                <td>{{ vendor.store_name }}</td>
+                <td>{{ vendor.user_name }}</td> 
+                <td> <a href="{% url 'vendor_detail_view' id=vendor.id %}">vendor details</a> </td>      
+            </tr>
+            {% endfor %}   
+        </tbody>
+        
+    </table>
+    
+</body>
+</html>
