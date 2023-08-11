@@ -10,3 +10,14 @@ def display_customer(request):
 def customer_detail(request,id):
     customer=Customer.objects.get(id=id)
     return render(request,"customer/customer_detail.html",{"customer":customer})
+
+def add_customer(request):
+    if request.method == "POST":
+        form = CustomerForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.save()
+
+
+    else:
+        form = CustomerForm()
+    return render(request,"customer/add_customer.html",{"form":form})
