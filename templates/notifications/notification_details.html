@@ -8,13 +8,15 @@
     <title>Notification Details</title>
 </head>
 <body>
+    {% include 'navbar.html'%}
     
+  <div>
     <h4>{{notification.message}}</h4>
     <p>{{notification.customer}}</p>
     <p>{{notification.date}}</p>
     <p>{{notification.time}}</p>
-    
     <span>{{notification.identification_number}}</span>
+  </div>
       
 </body>
 </html>

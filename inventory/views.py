@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from.forms import ProductAploadForm
 from inventory.models import Product
-from django.shortcuts import redirect
+from cart.models import Cart
+from django.shortcuts import redirect,render,get_object_or_404
 
 
 
@@ -37,7 +38,17 @@ def edit_product_view(request,id):
         form=ProductAploadForm(instance=product)
         return render(request,"inventory/edit_product.html",{"form":form})
          
-
+def add_to_cart(request, id):
+    product = get_object_or_404(Product, pk=id)
+    cart_item, created = Cart.objects.get_or_create(
+        user=request.user,
+        product=product.name,
+        defaults={'price': product.price, 'quantity': 1, 'image': product.image}
+    )
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('cart_detail')
 
 
 

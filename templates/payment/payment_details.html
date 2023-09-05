@@ -3,16 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%load static%}
-    <link ref="stylesheet" href="{% static 'Css/product_details.css'%}"/>
+    <style>
+        /* Reset some default styles */
+        body, p, span {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Overall styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(240, 128, 128);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .details-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .details-container p {
+            padding: 10px;
+            margin: 0;
+        }
+
+        .details-container span {
+            display: block;
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
     <title>Payment Details</title>
 </head>
 <body>
-    
-    <p>{{payment.amount}}</p>
-    <p>{{payment.payment_method}}</p>
-    <p>{{payme.description}}</p>
-    <span>{{product.price}}</span>
-      
+    <div class="details-container">
+        <p>{{ payment.amount }}</p>
+        <p>{{ payment.payment_method }}</p>
+        <p>{{ payment.description }}</p>
+        <p>{{ payment.receipt }}</p>
+        <p>{{ payment.status }}</p>
+        <span>{{ payment.date }}</span>
+    </div>
 </body>
 </html>

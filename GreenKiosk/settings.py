@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'payment',
     'order',
     'shipping',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -89,6 +90,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+MEDIA_URL='/images/'
 
 
 # Password validation

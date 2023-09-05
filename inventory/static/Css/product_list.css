@@ -35,3 +35,7 @@ a {
 a:hover {
     color: darkblue;
 }
+image{
+    width: 100px;
+    height: 100px;
+}
