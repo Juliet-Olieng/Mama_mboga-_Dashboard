@@ -13,11 +13,7 @@ class CustomerSerializer (serializers.ModelSerializer):
     class Meta:
         model =Customer
         fields = "__all__"
-    
-class CartSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Cart
-        fields = "__all__"
+
         
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,6 +23,12 @@ class DeliverySerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model =Product
+        fields = "__all__"
+
+class CartSerializer(serializers.ModelSerializer):
+    products=ProductSerializer(many=True)
+    class Meta:
+        model = Cart
         fields = "__all__"
         
 class NotificationSerializer(serializers.ModelSerializer):

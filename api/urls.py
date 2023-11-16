@@ -15,6 +15,7 @@ from .views import PaymentListView
 from .views import PaymentDetailView
 from .views import VendorDetailView
 from .views import VendorListView
+from .views import AddToCartView
 urlpatterns=[
     path('customers/',CustomerListView.as_view(),name='customer_list_view'),
     path('customers/<int:id>/',CustomerDetailView.as_view(),name='customer_detail_view'),
@@ -32,5 +33,6 @@ urlpatterns=[
     path('shipping/<int:id>/',ShippingDetailView.as_view(), name='shipping_detail_view'),
     path('vendors/', VendorListView.as_view(), name='vendor_list_view'),
     path('vendor/<int:id>/', VendorDetailView.as_view(),name='vendor_detail_view'),
+    path("add_to_cart", AddToCartView.as_view(), name="add-to-cart"),
     
 ]

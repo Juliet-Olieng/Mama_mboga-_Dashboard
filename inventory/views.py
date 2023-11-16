@@ -51,4 +51,16 @@ def add_to_cart(request, id):
     return redirect('cart_detail')
 
 
+def remove_product_from_cart(request, basket_id, product_id):
+    cart = get_object_or_404(Cart, id=basket_id)
+    product = get_object_or_404(Product, id=product_id)
+    if product in cart.products.all():
+        cart.products.remove(product)
+        cart.save()
+        return redirect('cart_detail')  
+    else:
+        return redirect('cart_detail')  
+
+
+
 
